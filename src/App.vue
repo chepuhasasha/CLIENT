@@ -1,5 +1,6 @@
 <template lang="pug">
-router-view
+.default
+  router-view
 </template>
 
 <style lang="less"></style>
