@@ -1,15 +1,18 @@
 <template lang="pug">
-.default
-  Header
+.app(:class='[theme]')
+  //- Header
+  h1 {{ theme }}
   router-view
 </template>
 <script>
-import Header from "@/components/Header";
+import { mapState } from "vuex";
 
 export default {
   name: "App",
-  components: {
-    Header,
+  computed: {
+    ...mapState({
+      theme: (state) => state.theme,
+    }),
   },
 };
 </script>
@@ -18,5 +21,19 @@ export default {
 #app {
   width: 100vw;
   height: 100vh;
+  // overflow: hidden;
+}
+.app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(24, 1fr);
 }
 </style>
